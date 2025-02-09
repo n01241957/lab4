@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Loan Application</title>
+</head>
+<body>
+    <h2>Loan Application Form</h2>
+    <form action="/submit" method="post" th:object="${loanApplication}">
+        <label>Name:</label>
+        <input type="text" th:field="*{applicantName}"/>
+        <p th:if="${#fields.hasErrors('applicantName')}" th:errors="*{applicantName}"></p>
+
+        <label>Email:</label>
+        <input type="email" th:field="*{email}"/>
+        <p th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></p>
+
+        <label>Loan Amount:</label>
+        <input type="number" th:field="*{loanAmount}"/>
+        <p th:if="${#fields.hasErrors('loanAmount')}" th:errors="*{loanAmount}"></p>
+
+        <label>Credit Score:</label>
+        <input type="number" th:field="*{creditScore}"/>
+        <p th:if="${#fields.hasErrors('creditScore')}" th:errors="*{creditScore}"></p>
+
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>
